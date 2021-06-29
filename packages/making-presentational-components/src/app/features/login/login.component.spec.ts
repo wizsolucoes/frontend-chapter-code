@@ -8,6 +8,7 @@ import { SSOConectorService } from '@wizsolucoes/ngx-wiz-sso';
 import { of, throwError } from 'rxjs';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Router } from '@angular/router';
+import { LoginFormModule } from 'src/app/shared/components/login-form/login-form.module';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -31,6 +32,7 @@ describe('LoginComponent', () => {
         SharedModule,
         BrowserAnimationsModule,
         RouterTestingModule.withRoutes(routes),
+        LoginFormModule,
       ],
       providers: [{ provide: SSOConectorService, useValue: mockSSO }],
     }).compileComponents();
@@ -48,14 +50,8 @@ describe('LoginComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have login form', () => {
-    expect(template.querySelector('form[data-test="login"]')).toBeTruthy();
-
-    expect(template.querySelector('input[data-test="email"]')).toBeTruthy();
-
-    expect(template.querySelector('input[data-test="password"]')).toBeTruthy();
-
-    expect(template.querySelector('button[data-test="submit"]')).toBeTruthy();
+  it('should have an app login component', () => {
+    expect(template.querySelector('app-login-form')).toBeTruthy();
   });
 
   describe('#onSubmit', () => {
