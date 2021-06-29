@@ -6,6 +6,7 @@ import { SharedModule } from '../../shared.module';
 @NgModule({
   declarations: [LoginFormComponent],
   imports: [CommonModule, SharedModule],
+  exports: [LoginFormComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class LoginFormModule {}
