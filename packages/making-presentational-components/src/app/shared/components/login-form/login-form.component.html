@@ -2,7 +2,7 @@
   <wiz-alert type="error" btnclose="true" *ngIf="loginErrorMessage">
     {{ loginErrorMessage }}
   </wiz-alert>
-  <h1>Login</h1>
+  <h1>{{ title }}</h1>
   <form [formGroup]="form" data-test="login" (ngSubmit)="onSubmit()">
     <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>
