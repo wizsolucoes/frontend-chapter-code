@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -8,6 +8,11 @@ import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 })
 export class LoginFormComponent {
   @Input() title?: string;
+
+  @Output() buttonClick: EventEmitter<{
+    userName: string;
+    password: string;
+  }> = new EventEmitter();
 
   form = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -26,10 +31,16 @@ export class LoginFormComponent {
     return this.form.get('password');
   }
 
-  onSubmit(): void {
+  onSubmitClicked() {
     if (this.form.invalid) {
       return;
     }
+
     this.loginButtonMessage = 'Entrando';
+
+    this.buttonClick.emit({
+      userName: this.form.value.email,
+      password: this.form.value.password,
+    });
   }
 }

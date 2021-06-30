@@ -3,7 +3,7 @@
     {{ loginErrorMessage }}
   </wiz-alert>
   <h1>{{ title }}</h1>
-  <form [formGroup]="form" data-test="login" (ngSubmit)="onSubmit()">
+  <form [formGroup]="form" data-test="login" (ngSubmit)="onSubmitClicked()">
     <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>
       <input
