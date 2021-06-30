@@ -13,16 +13,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+  loginErrorMessage: string | undefined;
+
+  loginButtonMessage = 'Entrar';
+
   constructor(private sso: SSOConectorService, private router: Router) {}
 
   onSubmit(credentials: { userName: string; password: string }): void {
+    this.loginButtonMessage = 'Entrando';
+
     this.sso.loginWithCredentials(credentials).subscribe(
       (data) => {
         this.router.navigate(['/home']);
       },
       (error) => {
-        // this.loginErrorMessage = error.error_description;
-        // this.loginButtonMessage = 'Entrar';
+        this.loginErrorMessage = error.error_description;
+        this.loginButtonMessage = 'Entrar';
       }
     );
   }

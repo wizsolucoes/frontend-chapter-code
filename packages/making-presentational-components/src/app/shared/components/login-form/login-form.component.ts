@@ -18,8 +18,10 @@ export class LoginFormComponent {
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required]],
   });
-  loginErrorMessage: string | undefined;
-  loginButtonMessage = 'Entrar';
+
+  @Input() loginErrorMessage: string | undefined;
+
+  @Input() loginButtonMessage: string | undefined;
 
   constructor(private fb: FormBuilder) {}
 
@@ -35,8 +37,6 @@ export class LoginFormComponent {
     if (this.form.invalid) {
       return;
     }
-
-    this.loginButtonMessage = 'Entrando';
 
     this.buttonClick.emit({
       userName: this.form.value.email,
