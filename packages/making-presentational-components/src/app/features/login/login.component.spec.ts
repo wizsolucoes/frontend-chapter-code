@@ -71,52 +71,16 @@ describe('LoginComponent', () => {
 
       spyOn(router, 'navigate');
 
-      component.form.controls[email].setErrors(null);
-      component.form.controls[password].setErrors(null);
-
       // When
-      component.onSubmit();
+      component.onSubmit({ userName: email, password: password });
 
       // Then
       expect(mockSSO.loginWithCredentials).toHaveBeenCalledWith({
-        userName: component.form.value.email,
-        password: component.form.value.password,
+        userName: email,
+        password: password,
       });
+
       expect(router.navigate).toHaveBeenCalledWith(['/home']);
-    });
-
-    it('should not call sso loginWithCredentials when form is invalid', () => {
-      // Given
-      const email = 'email';
-      const password = 'password';
-
-      component.form.controls[email].setErrors({ required: true });
-      component.form.controls[password].setErrors({ required: true });
-
-      // When
-      component.onSubmit();
-
-      // Then
-      expect(mockSSO.loginWithCredentials).not.toHaveBeenCalled();
-    });
-
-    it('should handle sso errors', () => {
-      // Given
-      const email = 'email';
-      const password = 'password';
-
-      mockSSO.loginWithCredentials.and.callFake(() => {
-        return throwError('fake error');
-      });
-
-      component.form.controls[email].setErrors(null);
-      component.form.controls[password].setErrors(null);
-
-      // When
-      component.onSubmit();
-
-      // Then
-      expect(mockSSO.loginWithCredentials).toHaveBeenCalled();
     });
   });
 });

@@ -1,1 +1,4 @@
-<app-login-form [title]="'Bem-vindo'"></app-login-form>
+<app-login-form
+  [title]="'Bem-vindo'"
+  (buttonClick)="onSubmit($event)"
+></app-login-form>
