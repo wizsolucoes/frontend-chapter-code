@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { SharedModule } from '../../shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 import { LoginFormComponent } from './login-form.component';
 
@@ -12,7 +15,13 @@ describe('LoginFormComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [LoginFormComponent],
-      imports: [SharedModule, NoopAnimationsModule],
+      imports: [
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        NoopAnimationsModule,
+      ],
     }).compileComponents();
   });
 
@@ -61,8 +70,11 @@ describe('LoginFormComponent', () => {
       component.form.value.email = email;
       component.form.value.password = password;
 
-      component.form.controls['email'].setErrors(null);
-      component.form.controls['password'].setErrors(null);
+      const emailKey = 'email';
+      const passwordKey = 'password';
+
+      component.form.controls[emailKey].setErrors(null);
+      component.form.controls[passwordKey].setErrors(null);
 
       spyOn(component.buttonClick, 'emit');
 
@@ -72,7 +84,7 @@ describe('LoginFormComponent', () => {
       // Then
       expect(component.buttonClick.emit).toHaveBeenCalledWith({
         userName: email,
-        password: password,
+        password,
       });
     });
   });

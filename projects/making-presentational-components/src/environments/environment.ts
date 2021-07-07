@@ -6,12 +6,15 @@ export const environment = {
   production: false,
   apiUrl: 'http://localhost:3000',
   ssoConfig: {
-    apiPath: '<<urldo servico>>',
-    clientID: '<<Cliente ID>>',
-    clientSecret: '<<Cliente Secret>>',
-    grantType: '<<Grant Type>>',
-    authedPaths: ['<<dns a ser autenticado>>'],
-    scope: '<<scope do projeto>>',
+    apiPath: 'https://sso-hml-web.azurewebsites.net',
+    clientID: 'demo_wizparceiros',
+    clientSecret:
+      'OWs8P4YzyUF3RIOfrCEzpooHR5ZSNSIOhhhj9GEJWphASBbJ2lCdc4WvoAoInFvQ',
+    grantType: 'password',
+    authedPaths: [
+      'https://github.com/wizsolucoes/angular-white-label/blob/master/src/styles.scss',
+    ],
+    scope: 'user.info',
     options: {
       // parâmetro opcional
       ssoTimeOut: 60000, // parâmetro opcional, determina o timeout para o SSO
