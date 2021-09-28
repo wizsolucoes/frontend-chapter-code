@@ -1,27 +1,47 @@
-# OperationCoverage
+<!-- omit in toc -->
+# [ Nome do projeto ]
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.0.
+ -- (Descrição sobre o propósito do projeto.)
 
-## Development server
+## Sumário
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- [Sumário](#sumário)
+- [Desenvolvimento, por onde começar](#desenvolvimento-por-onde-começar)
+- [Dependências](#dependências)
+- [Deploy](#deploy)
+- [Estrutura](#estrutura)
 
-## Code scaffolding
+## Desenvolvimento, por onde começar
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+ -- (Passos para execução do projeto, build, execução e relatório dos testes.)
+ Exemplo:
 
-## Build
+ ```bash
+# Instale as dependências
+npm install
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+# Rodar a aplicação
+ng serve
 
-## Running unit tests
+# Executar os testes
+ng test
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Executar os testes e gerar relatório de cobertura de código
+ng test --code-coverage
 
-## Running end-to-end tests
+# Executar o mesmo comando de teste executado pelo pipeline de CI
+npm run test:ci
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Dependências
 
-## Further help
+ -- (Informações sobre dependências, como APIs).
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Deploy
+
+ -- (Url da da aplicação publicada em homologação)
+ -- (Url da da aplicação publicada em produção)
+
+## Estrutura
+
+A estrutura deste aplicação é baseada na [arquitetura de referência para aplicações Angular](https://github.com/wizsolucoes/angular-starter) da Wiz Soluções.
