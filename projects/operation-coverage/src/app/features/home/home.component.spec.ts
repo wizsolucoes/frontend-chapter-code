@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HomeComponent } from './home.component';
-import { NavComponent } from '../../core/layout/nav/nav.component';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -9,7 +8,7 @@ describe('HomeComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [HomeComponent, NavComponent],
+      declarations: [HomeComponent],
     });
   });
 

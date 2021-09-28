@@ -1,22 +1,21 @@
 <!-- omit in toc -->
-# [ Nome do projeto ]
+# Operation coverage
 
- -- (Descrição sobre o propósito do projeto.)
+Este projeto é um espaço para treinar a escrita de testes automatizados. Iniciamos uma aplicação com algumas funcionalidades, mas sem testes automatizados. O objeto é/foi cobrir 100% do código por testes.
 
+<!-- omit in toc -->
 ## Sumário
 
-- [Sumário](#sumário)
 - [Desenvolvimento, por onde começar](#desenvolvimento-por-onde-começar)
-- [Dependências](#dependências)
-- [Deploy](#deploy)
 - [Estrutura](#estrutura)
 
 ## Desenvolvimento, por onde começar
 
- -- (Passos para execução do projeto, build, execução e relatório dos testes.)
- Exemplo:
+1. Clone este monorepositório
+2. Entre na pasta `projects/operation-coverage`
+3. Rode a aplicação e os testes
 
- ```bash
+```bash
 # Instale as dependências
 npm install
 
@@ -24,23 +23,11 @@ npm install
 ng serve
 
 # Executar os testes
-ng test
-
-# Executar os testes e gerar relatório de cobertura de código
-ng test --code-coverage
+ng test --browsers=ChromeHeadless
 
 # Executar o mesmo comando de teste executado pelo pipeline de CI
 npm run test:ci
 ```
-
-## Dependências
-
- -- (Informações sobre dependências, como APIs).
-
-## Deploy
-
- -- (Url da da aplicação publicada em homologação)
- -- (Url da da aplicação publicada em produção)
 
 ## Estrutura
 

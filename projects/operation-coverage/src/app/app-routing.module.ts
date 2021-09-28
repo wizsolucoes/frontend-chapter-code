@@ -15,23 +15,14 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'documentation',
-    loadChildren: () =>
-      import('./features/documentation/documentation.module').then(
-        (m) => m.DocumentationModule
-      ),
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'sales',
-    loadChildren: () =>
-      import('./features/sales/sales.module').then((m) => m.SalesModule),
-    canActivate: [AuthGuard],
-  },
-  {
     path: 'login',
     loadChildren: () =>
       import('./features/login/login.module').then((m) => m.LoginModule),
+  },
+  {
+    path: 'users',
+    loadChildren: () =>
+      import('./features/users/users.module').then((m) => m.UsersModule),
   },
   {
     path: '**',
