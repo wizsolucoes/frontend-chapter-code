@@ -7,18 +7,27 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+import { map } from 'rxjs/operators';
+
 @Injectable()
 export class DefaultInterceptor implements HttpInterceptor {
-  constructor() {}
+  static X_HEADER: string = 'X-Header';
+
   intercept(
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     request = request.clone({
-      setHeaders: {
-        'X-Header': '<<value>>',
-      },
+      headers: request.headers.append(
+        DefaultInterceptor.X_HEADER,
+        '<<some value>>'
+      ),
     });
-    return next.handle(request);
+
+    return next.handle(request).pipe(
+      map((event: HttpEvent<any>) => {
+        return event;
+      })
+    );
   }
 }
